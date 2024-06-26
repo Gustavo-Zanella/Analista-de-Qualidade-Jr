@@ -1,0 +1,229 @@
+1°Cenário:
+
+1. Documentação e Materiais de Apoio:
+
+Identificação da documentação:
+Será utilizada como principal a documentação oficial que o próprio marketplace tem a nos oferecer. Realizando uma breve pesquisa no navegador como "<nome do marketplace> API", podemos facilmente encontrar os documentos necessários.
+
+Análise da documentação: 
+Será analisada minuciosamente a documentação para entender como a API realiza sua integração. Faremos uma visualização do fluxo correspondente a essa integração, identificando os endpoints nos quais o e-commerce se conecta com a API do marketplace.
+
+Mapeamento dos requisitos: 
+Os requisitos serão mapeados conforme a própria documentação de desenvolvimento dessa integração, verificando quais os campos necessários para receber o retorno de dados obtidos da integração, bem como garantindo que todos os dados necessários serão enviados ao integrador. Os pontos de teste envolvem a validação das telas do sistema, abrangendo os campos (obrigatoriedade, limite de caracteres, formatação, etc...), validação do envio e validação do retorno.
+
+Utilização de ferramentas: 
+Para gerenciamento e mapeamento, acredito que o Jira seja a melhor opção;
+
+2. Abrangência dos Testes:
+
+Funcionalidades: 
+- Serão testadas todas as funcionalidades de integração desse sistema, como:
+1. Integração de estoque: Certificar que a quantidade em estoque esteja sincronizada;
+2. Integração de anúncios: Certificar que os anúncios exibidos na plataforma refletem o estoque da empresa;
+3. Integração de faturamento: Certificar que o faturamento está com o fechamento correto, sendo por loja, cliente ou geral;
+4. Integração de pedidos: Certificar que os pedidos cheguem no marketplace;
+5. Integração de preço: Certificar que o preço está sincronizado;
+	
+Casos de uso: 
+Para os casos de uso serão criados cenários de teste, visando validar os requisitos do sistema. Entre eles, cenários de sucesso em que o fluxo é feito conforme o esperado (exemplo: todos os campos obrigatórios preenchidos, não utilizar caracteres não autorizados nos campos, etc..). Também serão executados cenários de falha, em que o fluxo é feito com o objetivo de encontrar possíveis erros nas funcionalidades. Tanto nos cenários de sucesso, quanto nos cenários de falha serão validados os comportamentos do sistema (Exemplo: quando o fluxo está correto, serão emitidos mensagens de sucesso, já quando o fluxo for de falha o sistema deverá emitir um alerta claro ao usuário). Por fim, cenários com sobrecarga de dados (como por exemplo, em uma integração de pedidos realizar um grande volume de solicitações e/ou cancelamentos, garantindo que não ocasionará lentidão no sistema ou erros de timeout).
+
+Priorização dos testes:
+- Será considerado para priorização a criticidade da funcionalidade, pois precisa ser avaliado o nível de impacto no cliente final(negócio). Dessa forma, funcionalidades em que erros podem gerar prejuízos e interrupções significativas do sistema deverão ser testadas primeiro e demandaram mais horas de teste.
+
+3. Execução dos Testes:
+
+Ambiente de teste: 
+Será utilizado o ambiente de homologação para os testes. O ambiente de produção só receberá as atualizações quando os testes forem finalizados com sucesso.
+
+Dados de teste: 
+Para a obtenção dos dados serão criados produtos, pedidos e dados de usuários fictícios na base de teste.
+
+Ferramentas de automação: 
+Nesse caso, como seria um teste em API, utilizaria o Insomnia ou Postman. Já para testar funcionalidade do sistema, acredito que a ferramenta Selenium é perfeita para o caso;
+
+Registro de resultados: 
+Os resultados dos testes poderão ser registrados em uma ferramenta de gerenciamento de testes, exemplo: Jira.
+
+------------------------------------------------------------------------------------------------
+
+2º Cenário:
+
+1. Documentação e Materiais de Apoio:
+
+Identificação da documentação: 
+- Será utiliza a documentação oficial que pode ser encontrada no site do Bling (https://developer.bling.com.br/bling-api#introdução). 
+Ali poderá ser localizado tudo o que é necessário para utilização da API.
+
+Mapeamento dos requisitos: 
+- Os requisitos serão mapeados conforme a própria documentação de desenvolvimento dessa integração, verificando quais os campos necessários para receber o retorno de dados obtidos da integração, bem como garantindo que todos os dados necessários serão enviados ao integrador. Os pontos de teste envolvem a validação das telas do sistema, abrangendo os campos (obrigatoriedade, limite de caracteres, formatação, etc...), validação do envio e validação do retorno.
+
+Utilização de ferramentas: 
+- Para gerenciamento e mapeamento, acredito que o Jira seja a melhor opção;
+
+2. Abrangência dos Testes:
+
+Funcionalidades: 
+- Algumas das funcionalidades que serão testadas nessa integração vão ser:
+	1. Autenticação e autorização das requisições da API;
+	2. Processamento de pedidos;
+	3. Atualização de estoque;
+	4. Geração de relatórios;
+	5. Sincronização de produtos;
+
+Priorização dos testes: 
+- Ao meu ver, será considerado para priorização a criticidade da funcionalidade, pois precisa ser avaliado o nível de impacto no cliente final(negócio). Dessa forma, funcionalidades em que erros podem gerar prejuízos e interrupções significativas do sistema deverão ser testadas primeiro e demandaram mais horas de teste.
+
+3. Execução dos Testes:
+
+Dados de teste:
+- Iria utilizar de dados artificiais, faria a criação manual de um produto, colocaria ele em um estoque e criaria um pedido. Em qualquer criação, garantir que a regra e a tela de cada inclusão esteja com o funcionamento correto. 
+
+Ferramentas de automação:
+- Nesse caso, como seria um teste em API, utilizaria o Insomnia ou Postman. Já para testar funcionalidade do sistema, acredito que a ferramenta Selenium é perfeita para o caso;
+
+Registro de resultados: 
+- Os resultados dos testes poderão ser registrados em uma ferramenta de gerenciamento de testes, exemplo: Jira.
+
+------------------------------------------------------------------------------------------------
+3° Cenário:
+
+1. Procurar a documentação oficial sobre o assunto, neste caso encontrei no link: (https://developers.mercadolivre.com.br/pt_br/produto-sincronizacao-de-publicacoes);
+
+2. Visualizar a documentação, visando encontrar palavras chave sobre o problema, como:
+- Estoque;
+- Atualização;
+- Pausado; 
+- Status;
+
+3. Identificar o como é feita a alteração do status da publicação;
+- Regra que determina a alteração de status;
+- Maneiras de alterar status;
+
+4. Testar com base no que foi descoberto.
+- Criar um anúncio de teste;
+- Deixar o estoque desse produto em '1';
+- Zerar através de um compra "teste", o produto em anúncio;
+- Verificar se o mesmo ocorreu;
+- Se ocorreu é muito provável que o erro esteja no envio para a API.
+
+5. Conforme a documentação oficial, pode estar ocorrendo os seguintes erros:
+- Quantidade não está sendo enviada para o marketplace;
+- Quando a quantidade do estoque estiver como "0", não está sendo adicionado o subestado "out_of_stock" apenas o estado "paused";
+
+------------------------------------------------------------------------------------------------
+
+4° Cenário:
+
+EXECUÇÃO DE TESTES:
+ 
+--> Tela "Alterar Pessoas" - Aba "Geral":
+1. Campo "Nome":
+- Validar se o campo não permite apenas valores '', null ou ' ';
+- Validar se o campo obriga nome e sobrenome (ex. Gustavo Zanella);
+- Validar se o campo não aceita números nem caracteres especiais;
+- Validar se o campo aceita apenas letras (A-Z/a-z);
+- Validar quantidade de caracteres aceitos;
+
+2. Campo "E-mail":
+- Validar se o campo obriga o que foi digitado a ter "@";
+- Validar se o email segue o formato geral de usuario@dominio.extensao;
+- Validar se antes do "@" só há caracteres alfanuméricos, pontos (.), traços (-), sinais de mais (+) e sublinhados (_);
+- Validar se após o "@" só há caracteres alfanuméricos e traços (-);
+- Validar se o domínio contém pelo menos um ponto (.) e termina com uma extensão válida (como: .com, .org, .net, etc.);
+- Validar quantidade de caracteres aceitos;
+
+3. Campo "Data de Nascimento":
+- Validar se a data de nascimento contém apenas dígitos (0-9) e "/";
+- Validar se a data de nascimento contém no máximo 10 dígitos (00/00/0000);
+- Validar se a data de nascimento é menor de do que a data atual;
+- Validar se a data de nascimento é valida;
+
+--> Tela "Alterar Pessoas" - Aba "Contato";
+1. Campo "Telefone":
+- Validar se o número de telefone contém apenas dígitos (0-9);
+- Validar se o número de telefone contém no máximo 18 dígitos(+55 47 9 9123-4567);
+- Validar se o número de telefone pode incluir caracteres especiais como parênteses, hífens ou espaços, mas somente nos lugares corretos;
+- Validar se o número de telefone começa com um dígito diferente de zero;
+- Validar se o número de telefone não contém letras ou outros caracteres não permitidos.
+
+--> Tela "Alterar Pessoas" - Aba "Endereço";
+Obs: como não temos a tela para testar essa funcionalidade, será criado um cenário com base no padrão de desenvolvimento de endereço;
+
+1. Campo "CEP":
+- Verificar se o campo "CEP" aceita apenas números (0-9) e '-';
+- Verificar se o campo aceita entre 8 e 9 caracteres;
+- Verificar se ao sair do campo ele irá preencher os campos,"Cidade" e "Estado";
+
+2. Campo "Rua":
+- Validar se o campo não permite apenas valores '', null ou ' ';
+
+3. Campo "Cidade":
+- Verificar se a cidade condiz com o CEP;
+- Verificar se o campo não permite alteração;
+
+4. Campo "Estado":
+- Verificar se o estado condiz com o CEP;
+- Verificar se o campo não permite alteração;
+
+--> Tela "Alterar Pessoas"
+- Verificação das demais funcionalidades do sistema para garantir que nada foi alterado de maneira errônea.
+
+--> Caso de teste:
+
+--> Tela "Alterar Pessoas" - Aba "Geral":
+1. Campo Nome:
+- Gustavo Zanella    : Valido;
+- GustavoZanella     : Inválido;
+- Gustav1 4anella    : Inválido;
+- Gus@avo -Zanella   : Inválido;
+- Guuuuuuuuustaaa... : Inválido;
+- ''                 : Inválido;
+- ' '                : Inválido;
+
+2. Campo "E-mail":
+- gustavozanella@gmail.com    : Valido;
+- gustavozanellagmail.com	  : Inválido;
+- gustavozanella.com          : Inválido;
+- gustavozanella@gmailcom     : Inválido;
+- guuuuuuustaaaa...@gmail.com : Inválido;
+- ' '                		  : Inválido;
+
+3. Campo "Data de Nascimento":
+- 12/07/2003 : Válido;
+- 12/07/2030 : Inválido;
+- 12/14/2003 : Inválido;
+- 12/07/     : Inválido;
+- gg/07/2003 : Inválido;
+ 
+--> Tela "Alterar Pessoas" - Aba "Contato";
+1. Campo "Telefone":
+- +55 47 9 9123-4567  : Válido;
+- 47 9 9123-4567      : Válido;
+- 47 9912 34567       : Válido;
+- 47 a 991234567      : Inválido;
+- 47 9/9123/4567      : Inválido;
+- +55 47 9 9123-45672 : Inválido;
+
+--> Tela "Alterar Pessoas" - Aba "Endereço";
+Obs: como não temos a tela para testar essa funcionalidade, será criado o caso de teste com base no padrão de desenvolvimento de endereço;
+
+1. Campo "CEP":
+- 89188000  : Válido;
+- 89188-000 : Válido;
+- 89188.000 : Inválido;
+- 8918800   : Inválido;
+- 891880000 : Inválido;
+- 8 9188000 : Inválido;
+- 8a9188000 : Inválido;
+
+2. Campo "Rua":
+- 'Rua Colômbia' : Válido;
+- 'Colômbia-/'   : Válido;
+- ''             : Inválido;
+- ' '            : Inválido;
+
+3. Campo "Cidade":
+- Preenchido automaticamente;
+
+4. Campo "Estado":
+- Preenchido automaticamente;
